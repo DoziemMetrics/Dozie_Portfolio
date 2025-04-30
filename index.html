@@ -11,7 +11,7 @@
     a { text-decoration:none; color:inherit; }
     .app { display:flex; height:100vh; }
 
-    aside.sidebar { width:220px; background:#000; padding:20px; display:flex; flex-direction:column; }
+    aside.sidebar { width:220px; background:#000; padding:20px; display:flex; flex-direction:column; transition:left 0.3s; }
     section.main { flex:1; display:flex; justify-content:space-between; align-items:center; padding:60px; position:relative; flex-wrap: wrap; }
 
     .sidebar h2 { font-family:'Pacifico',cursive; color:#e91e63; font-size:1.8rem; }
@@ -32,8 +32,9 @@
     .social a { display:inline-block; background:#e91e63; padding:12px; border-radius:50%; margin-right:12px; transition:transform .3s; }
     .social a:hover { transform:scale(1.1); }
 
-    .profile { position:relative; margin-top: 30px; }
+    .profile { position:relative; margin-top:20px; }
     .profile img { width:320px; border-radius:10px; display:block; }
+
     .slider-dots { position:absolute; bottom:-20px; left:50%; transform:translateX(-50%); display:flex; gap:8px; }
     .slider-dots span { width:12px; height:12px; background:#444; border-radius:50%; cursor:pointer; transition:background .3s; }
     .slider-dots span.active { background:#e91e63; }
@@ -46,26 +47,48 @@
     .toolbar a { background:#222; padding:12px; border-radius:50%; color:#fff; transition:background .3s; }
     .toolbar a:hover { background:#e91e63; }
 
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .app { flex-direction: column; height:auto; }
-      aside.sidebar { width:100%; flex-direction: row; justify-content: space-around; padding:10px 0; }
-      .nav-links { display:flex; margin-top:0; gap:10px; }
-      .nav-links li { margin:0; }
-      .nav-links a { font-size:0.9rem; flex-direction:column; gap:4px; }
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #e91e63;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1001;
+    }
 
-      section.main { flex-direction:column; padding:20px; }
-      .intro h1 { font-size:1.8rem; text-align:center; }
-      .intro h2 { font-size:1.3rem; height:auto; text-align:center; }
-      .intro p { text-align:center; }
-      .intro, .profile { max-width:100%; text-align:center; }
-      .profile img { width:200px; }
-      .toolbar { display:none; }
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .app { flex-direction: column; }
+      aside.sidebar {
+        position: fixed;
+        top: 0; left: -220px;
+        height: 100%;
+        z-index: 1000;
+      }
+      aside.sidebar.active {
+        left: 0;
+      }
+      .hamburger {
+        display: block;
+      }
+      section.main {
+        flex-direction: column;
+        padding: 20px;
+      }
+      .profile img {
+        width: 240px;
+        margin-top: 20px;
+      }
+      .toolbar { right: 10px; top: 10px; transform: none; flex-direction: row; }
     }
   </style>
 </head>
 <body>
   <div class="app">
+    <!-- Sidebar -->
     <aside class="sidebar">
       <h2>Dozimetric</h2>
       <ul class="nav-links">
@@ -76,7 +99,15 @@
         <li><a href="contact.html"><i class="fa fa-comment"></i>Contact</a></li>
       </ul>
     </aside>
+
+    <!-- Main Content -->
     <section class="main">
+
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+
       <div class="intro">
         <h1>Hello, my name is <span>Inyama Chiedoziem</span></h1>
         <h2>I am a <span id="typewriter"></span></h2>
@@ -91,6 +122,7 @@
           <a href="#"><i class="fab fa-x-twitter"></i></a>
         </div>
       </div>
+
       <div class="profile">
         <img src="Profile Picture.jpg" alt="Profile Photo">
         <div class="slider-dots">
@@ -101,9 +133,12 @@
           <a href="#"><i class="fas fa-cogs"></i></a>
         </div>
       </div>
+
     </section>
   </div>
+
   <script>
+    // Typewriter effect
     const professions = ["Data Analyst","Data Scientist","Cloud Engineer","Monitoring & Evalution Specialist"];
     let pi = 0, ci = 0, del=false;
     function type(){ 
@@ -115,10 +150,18 @@
       }
     }
     window.onload=type;
+
     document.querySelectorAll('.slider-dots span').forEach(d=>d.addEventListener('click',()=>{
       document.querySelectorAll('.slider-dots span').forEach(x=>x.classList.remove('active'));
       d.classList.add('active');
     }));
+
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.querySelector('aside.sidebar');
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
   </script>
 </body>
 </html>
