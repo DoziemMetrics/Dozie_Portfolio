@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home – Doziemetrics</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins',sans-serif; background:#111; color:#fff; overflow-x:hidden; }
+    a { text-decoration:none; color:inherit; }
+    .app { display:flex; height:100vh; }
+    aside.sidebar { width:220px; background:#000; padding:20px; display:flex; flex-direction:column; }
+    section.main { flex:1; display:flex; justify-content:space-between; align-items:center; padding:60px; position:relative; }
+    .sidebar h2 { font-family:'Pacifico',cursive; color:#e91e63; font-size:1.8rem; }
+    .nav-links { list-style:none; margin-top:40px; }
+    .nav-links li { margin:20px 0; }
+    .nav-links a { display:flex; align-items:center; gap:12px; font-size:1rem; color:#ccc; transition:color .3s; }
+    .nav-links a.active, .nav-links a:hover { color:#e91e63; }
+    .intro { max-width:600px; }
+    .intro h1 { font-size:2.5rem; }
+    .intro h1 span { color:#e91e63; font-family:'Pacifico',cursive; }
+    .intro h2 { margin:20px 0 10px; font-size:1.8rem; height:2.2rem; }
+    .intro p { line-height:1.6; margin-bottom:16px; }
+    .btn-cv { display:inline-block; margin-top:20px; padding:10px 24px; border:2px solid #e91e63; border-radius:6px; color:#e91e63; transition:background .3s, color .3s; }
+    .btn-cv:hover { background:#e91e63; color:#111; }
+    .social { margin-top:24px; }
+    .social a { display:inline-block; background:#e91e63; padding:12px; border-radius:50%; margin-right:12px; transition:transform .3s; }
+    .social a:hover { transform:scale(1.1); }
+    .profile { position:relative; }
+    .profile img { width:320px; border-radius:10px; display:block; }
+    .slider-dots { position:absolute; bottom:-20px; left:50%; transform:translateX(-50%); display:flex; gap:8px; }
+    .slider-dots span { width:12px; height:12px; background:#444; border-radius:50%; cursor:pointer; transition:background .3s; }
+    .slider-dots span.active { background:#e91e63; }
+    .main::before, .main::after { content:''; position:absolute; border:8px solid #e91e63; }
+    .main::before { top:16px; left:16px; border-right:none; border-bottom:none; width:40px; height:40px; }
+    .main::after  { bottom:16px; right:16px; border-left:none; border-top:none; width:40px; height:40px; }
+    .toolbar { position:absolute; right:-40px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:16px; }
+    .toolbar a { background:#222; padding:12px; border-radius:50%; color:#fff; transition:background .3s; }
+    .toolbar a:hover { background:#e91e63; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h2>Dozimetric</h2>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active"><i class="fa fa-home"></i>Home</a></li>
+        <li><a href="about.html"><i class="fa fa-user"></i>About</a></li>
+        <li><a href="services.html"><i class="fa fa-list"></i>Services</a></li>
+        <li><a href="portfolio.html"><i class="fa fa-briefcase"></i>Portfolio</a></li>
+        <li><a href="contact.html"><i class="fa fa-comment"></i>Contact</a></li>
+      </ul>
+    </aside>
+    <section class="main">
+      <div class="intro">
+        <h1>Hello, my name is <span>Inyama Chiedoziem</span></h1>
+        <h2>I am a <span id="typewriter"></span></h2>
+        <p>A dedicated professional specializing in transforming raw data into actionable insights. With expertise in data analysis, data science, machine learning, deep learning, Generative AI, and web analytics, I excel at uncovering patterns and trends to drive informed decision-making and innovation.</p>
+        <p>Explore my portfolio to see projects that address complex challenges with data-driven solutions, including predictive modeling, big data analytics, interactive dashboards, and elegant visualizations.</p>
+        <a href="Dozimetric_CV.pdf" class="btn-cv" download>Download CV</a>
+        <div class="social">
+          <a href="https://www.linkedin.com/in/chiedoziem-inyama/"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/DoziemMetrics"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-figma"></i></a>
+          <a href="https://www.youtube.com/@doziemetrics"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="profile">
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQFDBGIVcMmj4w/profile-displayphoto-shrink_800_800/0/1686745036206?e=1750896000&v=beta&t=eJrEgc5Ql2dXBePgpmrd0HwkuMk9D007-aJneyu_YOk" alt="Profile Photo">
+        <div class="slider-dots">
+          <span class="active"></span><span></span><span></span>
+        </div>
+        <div class="toolbar">
+          <a href="#"><i class="fas fa-cog"></i></a>
+          <a href="#"><i class="fas fa-cogs"></i></a>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    const professions = ["Data Analyst","Data Scientist","Cloud Engineer","Monitoring & Evalution Specialist"];
+    let pi = 0, ci = 0, del=false;
+    function type(){ 
+      const txt=professions[pi], el=document.getElementById('typewriter');
+      if(!del){ el.innerHTML=txt.substring(0,ci+1); ci++; 
+        if(ci===txt.length){ del=true; setTimeout(type,3000);} else setTimeout(type,150);
+      } else { el.innerHTML=txt.substring(0,ci-1); ci--; 
+        if(ci===0){ del=false; pi=(pi+1)%professions.length; setTimeout(type,1000);} else setTimeout(type,100);
+      }
+    }
+    window.onload=type;
+    document.querySelectorAll('.slider-dots span').forEach(d=>d.addEventListener('click',()=>{
+      document.querySelectorAll('.slider-dots span').forEach(x=>x.classList.remove('active'));
+      d.classList.add('active');
+    }));
+  </script>
+</body>
+</html>

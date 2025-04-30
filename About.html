@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About – Doziemetrics</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins',sans-serif; background:#111; color:#fff; }
+    a { color:inherit; text-decoration:none; }
+    .app { display:flex; min-height:100vh; }
+    aside.sidebar { width:220px; background:#000; padding:20px; display:flex; flex-direction:column; }
+    section.main { flex:1; padding:60px; overflow-y:auto; }
+    .sidebar h2 { font-family:'Pacifico',cursive; color:#e91e63; font-size:1.8rem; margin-bottom:40px;}
+    .nav-links { list-style:none; } .nav-links li{margin:20px 0;}
+    .nav-links a{display:flex;align-items:center;gap:12px;font-size:1rem;color:#ccc;transition:color .3s;}
+    .nav-links a.active,.nav-links a:hover{color:#e91e63;}
+    .section-header{margin-bottom:20px;} .section-header h2{font-size:2rem;color:#e91e63;}
+    .about-intro{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:60px;}
+    .intro-text h3{font-size:1.5rem;margin-bottom:12px;}
+    .intro-text h4{font-size:1rem;margin-bottom:16px;color:#ccc;}
+    .intro-text p{line-height:1.6;margin-bottom:8px;}
+    .btn-hire{display:inline-block;margin-top:16px;padding:10px 24px;border:2px solid #e91e63;border-radius:6px;color:#e91e63;transition:background .3s,color .3s;}
+    .btn-hire:hover{background:#e91e63;color:#111;}
+    .skills{margin-bottom:60px;}
+    .skill{margin-bottom:16px;}
+    .skill-name{display:flex;justify-content:space-between;margin-bottom:4px;}
+    .skill-bar{width:100%;height:8px;background:#333;border-radius:4px;overflow:hidden;}
+    .skill-bar-inner{height:100%;background:#e91e63;width:0;transition:width 1s;}
+    .timeline-container{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+    .timeline-item{margin-bottom:32px;}
+    .timeline-item h4{font-size:1.2rem;margin-bottom:4px;color:#e91e63;}
+    .timeline-item span{font-size:0.9rem;color:#ccc;}
+    .timeline-item p{margin-top:4px;line-height:1.5;}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h2>Doziemetrics</h2>
+      <ul class="nav-links">
+        <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="about.html" class="active"><i class="fa fa-user"></i> About</a></li>
+        <li><a href="services.html"><i class="fa fa-list"></i> Services</a></li>
+        <li><a href="portfolio.html"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+        <li><a href="contact.html"><i class="fa fa-comment"></i> Contact</a></li>
+      </ul>
+    </aside>
+    <section class="main">
+      <div class="section-header"><h2>About Me</h2></div>
+      <div class="about-intro">
+        <div class="intro-text">
+          <h3>I'm Inyama Chiedoziem, a Data Scientist</h3>
+          <h4>As a seasoned Data Analyst and Data Scientist, I bring a rich blend of education, professional experience, and expertise in tools like TensorFlow, Power BI, Tableau, Python, and more, showcased through my projects, skills, and a professional introduction video.</h4>
+          <p><strong>Birthday:</strong> 11th March</p>
+          <p><strong>Website:</strong> <a href="https://riteclick.com.ng" target="_blank">riteclick.com.ng</a></p>
+          <p><strong>Degree:</strong> BSc Data Science</p>
+          <p><strong>City:</strong> Eket, Akwa Ibom State</p>
+          <p><strong>Phone:</strong> +2348130866783</p>
+          <p><strong>Email:</strong> edo2558@gmail.com</p>
+          <p><strong>Freelance:</strong> Available</p>
+          <a href="mailto:edo2558@gmail.com" class="btn-hire">Hire Me</a>
+        </div>
+        <div class="skills">
+          <div class="skill">
+            <div class="skill-name"><span>Pandas</span><span>86%</span></div>
+            <div class="skill-bar"><div class="skill-bar-inner" style="width:86%;"></div></div>
+          </div>
+          <div class="skill">
+            <div class="skill-name"><span>Scikit-Learn</span><span>70%</span></div>
+            <div class="skill-bar"><div class="skill-bar-inner" style="width:70%;"></div></div>
+          </div>
+          <div class="skill">
+            <div class="skill-name"><span>Matplotlib</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-bar-inner" style="width:90%;"></div></div>
+          </div>
+          <div class="skill">
+            <div class="skill-name"><span>Power BI</span><span>95%</span></div>
+            <div class="skill-bar"><div class="skill-bar-inner" style="width:95%;"></div></div>
+          </div>
+          <div class="skill">
+            <div class="skill-name"><span>SQL</span><span>80%</span></div>
+            <div class="skill-bar"><div class="skill-bar-inner" style="width:80%;"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-container">
+        <div>
+          <div class="section-header"><h2>Education</h2></div>
+          <div class="timeline-item">
+            <h4>2023 – 2026</h4><span>Data Science (BSc)</span><p>MIVA Open University, Nigeria</p>
+          </div>
+          <div class="timeline-item">
+            <h4>2015 – 2019</h4><span>Degree in Biochemistry</span><p>University of Calabar, Nigeria</p>
+          </div>
+        </div>
+        <div>
+          <div class="section-header"><h2>Experience</h2></div>
+          <div class="timeline-item">
+            <h4>2023 – Present</h4><span>Monitoring & Evaluation Assistant</span><p>Heartland Alliance Nigeria</p>
+          </div>
+          <div class="timeline-item">
+            <h4>2020 – 2023</h4><span>Office Assistant</span><p>Heartland Alliance Nigeria</p>
+          </div>
+          <div class="timeline-item">
+            <h4>2018 – 2020</h4><span>Digital Marketer</span><p>Pond Circus</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
